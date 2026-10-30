@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: ordercraft-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: ordercraft_db
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3307:3306"
+    volumes:
+      - ordercraft-mysql-data:/var/lib/mysql
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ordercraft-app
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8081:8081"
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: ordercraft_db
+      DB_USER: root
+      DB_PASSWORD: ""
+
+volumes:
+  ordercraft-mysql-data:
