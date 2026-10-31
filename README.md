@@ -75,7 +75,9 @@ docker-compose up -d --build
 
 ---
 
-## 4. Demo Login Credentials
+## 4. User Account Registration
 
-- **Administrator**: `admin` / `admin123`
-- **Staff Member**: `staff` / `staff123`
+OrderCraft supports self-service onboarding:
+- Register an account directly using the **"Create New Account"** tab on the sign-in page.
+- Specify your preferred username, password, and operational role (*Staff* or *Admin*).
+- New accounts are authenticated immediately into the workspace.

@@ -245,13 +245,9 @@ def init_db():
         FOREIGN KEY (raw_material_id) REFERENCES raw_materials (id)
     )""")
     
-    # Seed baseline records if database is fresh
-    c.execute("SELECT COUNT(*) FROM users")
+    # Seed baseline business records if database is fresh
+    c.execute("SELECT COUNT(*) FROM customers")
     if c.fetchone()[0] == 0:
-        # Seed users
-        c.execute("INSERT INTO users (username, password, full_name, role) VALUES ('admin', 'admin123', 'Rajesh Sharma (Managing Director)', 'ROLE_ADMIN')")
-        c.execute("INSERT INTO users (username, password, full_name, role) VALUES ('staff', 'staff123', 'Pooja Verma (Plant Supervisor)', 'ROLE_STAFF')")
-        
         # Seed Customers with GSTIN
         c.execute("INSERT INTO customers (customer_code, name, email, phone, address, tax_id) VALUES ('CUST-1001', 'Tata Motors Precision Systems Ltd', 'procurement@tatamotors-precision.co.in', '+91 98220 11440', 'Plot C-12, MIDC Industrial Area, Chakan, Pune, Maharashtra 410501', '27AAACT2727Q1ZW')")
         c.execute("INSERT INTO customers (customer_code, name, email, phone, address, tax_id) VALUES ('CUST-1002', 'Bharat Forge Advanced Engineering Ltd', 'orders@bharatforge-tech.com', '+91 98450 78210', '72 Mundhwa Industrial Corridor, Pune, Maharashtra 411036', '27AAACB1100P1Z3')")
@@ -341,8 +337,15 @@ if not st.session_state.get("user"):
     st.markdown("<h2 style='text-align: center; color: #1e3a8a;'>⚙️ OrderCraft</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; color: #64748b; font-size: 15px;'>Manufacturing Execution System & Enterprise Resource Planning</p>", unsafe_allow_html=True)
     
+    conn = get_db()
+    user_count = conn.execute("SELECT COUNT(*) FROM users").fetchone()[0]
+    conn.close()
+
     col1, col2, col3 = st.columns([1, 1.4, 1])
     with col2:
+        if user_count == 0:
+            st.info("👋 Welcome to OrderCraft! No user accounts exist yet. Please register your account using the **Create New Account** tab to get started.")
+            
         tab_login, tab_register = st.tabs(["🔐 Sign In", "✨ Create New Account"])
         
         with tab_login:

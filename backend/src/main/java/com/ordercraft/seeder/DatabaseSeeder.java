@@ -60,20 +60,12 @@ public class DatabaseSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        if (userRepository.count() > 0) {
+        if (!customerService.getAllActiveCustomers().isEmpty()) {
             logger.info("Database is already initialized. Skipping seed data.");
             return;
         }
 
-        logger.info("Initializing OrderCraft demonstration data...");
-
-        // 1. Users
-        User admin = new User("admin", "admin@ordercraft.in", passwordEncoder.encode("admin123"),
-                "Rajesh Sharma (Managing Director & Operations Head)", Role.ROLE_ADMIN);
-        User staff = new User("staff", "staff@ordercraft.in", passwordEncoder.encode("staff123"),
-                "Pooja Verma (Plant & Shop Floor Supervisor)", Role.ROLE_STAFF);
-        userRepository.saveAll(List.of(admin, staff));
-        logger.info("Created demonstration user accounts: admin, staff");
+        logger.info("Initializing OrderCraft baseline master data...");
 
         // 2. Customers
         CustomerDto c1 = new CustomerDto();
