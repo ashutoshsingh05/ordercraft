@@ -14,8 +14,8 @@ import { ToastComponent } from '../toast/toast.component';
       <!-- Sidebar Navigation -->
       <aside class="sidebar">
         <div class="sidebar-header">
-          <div class="logo-badge">🇮🇳</div>
-          <div class="brand-title">OrderCraft India</div>
+          <div class="logo-badge">OC</div>
+          <div class="brand-title">OrderCraft</div>
         </div>
 
         <ul class="nav-list">

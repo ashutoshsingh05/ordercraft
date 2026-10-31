@@ -12,9 +12,9 @@ import { AuthService } from '../../services/auth.service';
     <div class="login-wrapper">
       <div class="login-card">
         <div class="brand">
-          <div class="badge">🇮🇳 OC</div>
-          <h2>OrderCraft India</h2>
-          <p>Manufacturing ERP & Shop Floor System</p>
+          <div class="badge">OC</div>
+          <h2>OrderCraft</h2>
+          <p>Manufacturing Order Management System</p>
         </div>
 
         <div class="auth-tabs">
