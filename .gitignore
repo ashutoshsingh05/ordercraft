@@ -12,6 +12,9 @@ frontend/dist/
 backend/target/
 tools/
 mysql-data/
+__pycache__/
+*.py[cod]
+ordercraft.db
 
 # IDE configs
 .idea/

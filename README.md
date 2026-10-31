@@ -37,8 +37,15 @@ You can map a custom name (e.g. `ordercraft.app` or `ordercraft.local`) so you c
    http://ordercraft.local:8081/
    ```
 
-### Option C: Cloud Deployment via Docker
-Deploy with 1 command to any VPS or cloud provider (Render, Railway, AWS EC2, DigitalOcean):
+### Option C: Instant Cloud Deployment on Streamlit (Zero Card Required)
+Deploy in 30 seconds for free on [Streamlit Community Cloud](https://share.streamlit.io):
+1. Log in to **[share.streamlit.io](https://share.streamlit.io)** with GitHub.
+2. Click **Create app** (or **New app**).
+3. Select repository: `ashutoshsingh05/ordercraft`, branch: `main`, main file: `streamlit_app.py`.
+4. Click **Deploy!**
+
+### Option D: Cloud Deployment via Docker
+Deploy with 1 command to any VPS or cloud container:
 ```bash
 docker-compose up -d --build
 ```
