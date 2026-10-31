@@ -64,7 +64,7 @@ import { PurchaseOrder, Supplier, RawMaterial } from '../../models/models';
                   <td>{{ po.supplier?.name }}</td>
                   <td>{{ po.orderDate }}</td>
                   <td>{{ po.expectedDeliveryDate || '-' }}</td>
-                  <td><strong style="color: #0f172a;">\${{ (po.totalAmount || 0) | number:'1.2-2' }}</strong></td>
+                  <td><strong style="color: #0f172a;">₹{{ (po.totalAmount || 0) | number:'1.2-2' }}</strong></td>
                   <td>
                     <span class="badge" [ngClass]="{
                       'badge-secondary': po.status === 'DRAFT',

@@ -68,85 +68,85 @@ public class DatabaseSeeder implements CommandLineRunner {
         logger.info("Initializing OrderCraft demonstration data...");
 
         // 1. Users
-        User admin = new User("admin", "admin@ordercraft.io", passwordEncoder.encode("admin123"),
-                "Eleanor Vance (Operations Director)", Role.ROLE_ADMIN);
-        User staff = new User("staff", "staff@ordercraft.io", passwordEncoder.encode("staff123"),
-                "Marcus Chen (Production Lead)", Role.ROLE_STAFF);
+        User admin = new User("admin", "admin@ordercraft.in", passwordEncoder.encode("admin123"),
+                "Rajesh Sharma (Managing Director & Operations Head)", Role.ROLE_ADMIN);
+        User staff = new User("staff", "staff@ordercraft.in", passwordEncoder.encode("staff123"),
+                "Pooja Verma (Plant & Shop Floor Supervisor)", Role.ROLE_STAFF);
         userRepository.saveAll(List.of(admin, staff));
         logger.info("Created demonstration user accounts: admin, staff");
 
         // 2. Customers
         CustomerDto c1 = new CustomerDto();
         c1.setCustomerCode("CUST-1001");
-        c1.setName("Apex Robotics Dynamics");
-        c1.setEmail("procurement@apexrobotics.com");
-        c1.setPhone("+1 (312) 555-0192");
-        c1.setAddress("440 Industrial Parkway, Chicago, IL 60607");
-        c1.setTaxId("US-EIN-9482711");
+        c1.setName("Tata Motors Precision Systems Ltd");
+        c1.setEmail("procurement@tatamotors-precision.co.in");
+        c1.setPhone("+91 98220 11440");
+        c1.setAddress("Plot C-12, MIDC Industrial Area, Chakan, Pune, Maharashtra 410501");
+        c1.setTaxId("27AAACT2727Q1ZW");
         Customer cust1 = customerService.createCustomer(c1);
 
         CustomerDto c2 = new CustomerDto();
         c2.setCustomerCode("CUST-1002");
-        c2.setName("NexaTech Industrial Systems");
-        c2.setEmail("orders@nexatech.com");
-        c2.setPhone("+1 (313) 555-0144");
-        c2.setAddress("1200 Assembly Row, Detroit, MI 48226");
-        c2.setTaxId("US-EIN-3829104");
+        c2.setName("Bharat Forge Advanced Engineering Ltd");
+        c2.setEmail("orders@bharatforge-tech.com");
+        c2.setPhone("+91 98450 78210");
+        c2.setAddress("72 Mundhwa Industrial Corridor, Pune, Maharashtra 411036");
+        c2.setTaxId("27AAACB1100P1Z3");
         Customer cust2 = customerService.createCustomer(c2);
 
         CustomerDto c3 = new CustomerDto();
         c3.setCustomerCode("CUST-1003");
-        c3.setName("Sterling Automotive Corp");
-        c3.setEmail("supply@sterlingauto.com");
-        c3.setPhone("+1 (216) 555-0188");
-        c3.setAddress("750 Foundry Way, Cleveland, OH 44114");
-        c3.setTaxId("US-EIN-5520931");
+        c3.setName("Larsen & Toubro Heavy Machinery Div");
+        c3.setEmail("supply.chain@lnt-heavyeng.com");
+        c3.setPhone("+91 99300 45612");
+        c3.setAddress("Gate 5, Saki Vihar Road, Powai Works, Mumbai, Maharashtra 400072");
+        c3.setTaxId("27AAACL0149E1ZP");
         Customer cust3 = customerService.createCustomer(c3);
 
         CustomerDto c4 = new CustomerDto();
         c4.setCustomerCode("CUST-1004");
-        c4.setName("Quantum Energy Solutions");
-        c4.setEmail("contracts@quantumenergy.com");
-        c4.setPhone("+1 (713) 555-0122");
-        c4.setAddress("88 Energy Corridor, Houston, TX 77079");
-        c4.setTaxId("US-EIN-8812903");
+        c4.setName("Mahindra Electric Mobility Ltd");
+        c4.setEmail("vendor.ops@mahindraelectric.com");
+        c4.setPhone("+91 98801 33200");
+        c4.setAddress("Plot 14/15, Bommasandra Jigani Link Road, Bengaluru, Karnataka 560105");
+        c4.setTaxId("29AABCM1234D1Z8");
         customerService.createCustomer(c4);
 
         // 3. Suppliers
         SupplierDto s1 = new SupplierDto();
         s1.setSupplierCode("SUP-2001");
-        s1.setName("Industrial Alloys & Metals Ltd");
-        s1.setContactPerson("David Miller");
-        s1.setEmail("sales@industrialalloys.com");
-        s1.setPhone("+1 (412) 555-0199");
-        s1.setAddress("100 Steel Mill Rd, Pittsburgh, PA 15201");
+        s1.setName("Jindal Steel & Power Ltd");
+        s1.setContactPerson("Suresh Jindal");
+        s1.setEmail("sales@jindalsteel-industrial.com");
+        s1.setPhone("+91 97520 88200");
+        s1.setAddress("Kharsia Road Industrial Complex, Raigarh, Chhattisgarh 496001");
         Supplier sup1 = supplierService.createSupplier(s1);
 
         SupplierDto s2 = new SupplierDto();
         s2.setSupplierCode("SUP-2002");
-        s2.setName("Precision Polymers & Plastics Corp");
-        s2.setContactPerson("Sarah Jenkins");
-        s2.setEmail("orders@precisionpolymers.com");
-        s2.setPhone("+1 (330) 555-0177");
-        s2.setAddress("55 Polymer Dr, Akron, OH 44308");
+        s2.setName("Hindalco Aluminium Extrusions Ltd");
+        s2.setContactPerson("Sunil Rathi");
+        s2.setEmail("industrial.sales@hindalco-adityabirla.com");
+        s2.setPhone("+91 94150 23145");
+        s2.setAddress("Renukoot Industrial Estate, Sonebhadra, Uttar Pradesh 231217");
         Supplier sup2 = supplierService.createSupplier(s2);
 
         SupplierDto s3 = new SupplierDto();
         s3.setSupplierCode("SUP-2003");
-        s3.setName("CircuitCraft Microelectronics");
-        s3.setContactPerson("Alan Zhao");
-        s3.setEmail("dist@circuitcraft.com");
-        s3.setPhone("+1 (408) 555-0133");
-        s3.setAddress("300 Silicon Valley Blvd, San Jose, CA 95110");
+        s3.setName("Havells Industrial Electricals Ltd");
+        s3.setContactPerson("Vikram Malhotra");
+        s3.setEmail("b2b.orders@havells-switchgear.com");
+        s3.setPhone("+91 98110 56789");
+        s3.setAddress("A-22, Phase-II, Okhla Industrial Area, New Delhi 110020");
         Supplier sup3 = supplierService.createSupplier(s3);
 
         SupplierDto s4 = new SupplierDto();
         s4.setSupplierCode("SUP-2004");
-        s4.setName("Vulcan Fasteners & Hardware");
-        s4.setContactPerson("Robert Koch");
-        s4.setEmail("sales@vulcanfasteners.com");
-        s4.setPhone("+1 (414) 555-0155");
-        s4.setAddress("820 Bolt St, Milwaukee, WI 53202");
+        s4.setName("Polycab Wires & Polymers Ltd");
+        s4.setContactPerson("Ketan Patel");
+        s4.setEmail("supply@polycab-industrial.in");
+        s4.setPhone("+91 98250 90123");
+        s4.setAddress("741/1 GIDC Industrial Estate, Halol, Vadodara, Gujarat 389350");
         supplierService.createSupplier(s4);
 
         // 4. Raw Materials (some with low stock to demonstrate alerts)
@@ -279,7 +279,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         orderService.updateOrderStatus(ord1.getId(), CustomerOrderStatus.CONFIRMED, "Client PO received");
         orderService.updateOrderStatus(ord1.getId(), CustomerOrderStatus.IN_PRODUCTION, "Production order initiated");
         orderService.updateOrderStatus(ord1.getId(), CustomerOrderStatus.COMPLETED, "QA inspection passed");
-        orderService.updateOrderStatus(ord1.getId(), CustomerOrderStatus.DELIVERED, "Delivered to Chicago warehouse");
+        orderService.updateOrderStatus(ord1.getId(), CustomerOrderStatus.DELIVERED, "Delivered to Chakan works");
 
         // Generate Invoice for Order 1
         InvoiceRequest invReq1 = new InvoiceRequest();
@@ -296,8 +296,8 @@ public class DatabaseSeeder implements CommandLineRunner {
         payReq1.setAmount(inv1.getTotalAmount());
         payReq1.setPaymentMethod(PaymentMethod.BANK_TRANSFER);
         payReq1.setPaymentDate(LocalDate.now().minusDays(3));
-        payReq1.setReferenceNumber("WIRE-APEX-8904");
-        payReq1.setNotes("Full settlement via wire transfer");
+        payReq1.setReferenceNumber("RTGS/SBIN000456/778811");
+        payReq1.setNotes("Full settlement via RTGS");
         paymentService.recordPayment(payReq1);
 
         // Order 2: In Production & partially invoiced
@@ -305,7 +305,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         ordReq2.setCustomerId(cust2.getId());
         ordReq2.setOrderDate(LocalDate.now().minusDays(8));
         ordReq2.setDeliveryDate(LocalDate.now().plusDays(12));
-        ordReq2.setNotes("Standard delivery for Detroit assembly facility");
+        ordReq2.setNotes("Standard delivery for Mundhwa robotics facility");
         ordReq2.setItems(List.of(
                 createOrderItem(prodGripper.getId(), BigDecimal.valueOf(6), BigDecimal.valueOf(1450.00))
         ));
@@ -317,18 +317,18 @@ public class DatabaseSeeder implements CommandLineRunner {
         invReq2.setCustomerOrderId(ord2.getId());
         invReq2.setIssueDate(LocalDate.now().minusDays(4));
         invReq2.setDueDate(LocalDate.now().plusDays(26));
-        invReq2.setTaxRate(BigDecimal.valueOf(8.50));
-        invReq2.setNotes("50% advance deposit invoiced");
+        invReq2.setTaxRate(BigDecimal.valueOf(18.00));
+        invReq2.setNotes("GST 18% - Advance deposit invoiced");
         Invoice inv2 = invoiceService.generateInvoiceFromOrder(invReq2);
 
-        // Record partial payment for Invoice 2 ($5,000 partial payment)
+        // Record partial payment for Invoice 2 (partial payment)
         PaymentRequest payReq2 = new PaymentRequest();
         payReq2.setInvoiceId(inv2.getId());
         payReq2.setAmount(BigDecimal.valueOf(5000.00));
         payReq2.setPaymentMethod(PaymentMethod.BANK_TRANSFER);
         payReq2.setPaymentDate(LocalDate.now().minusDays(1));
-        payReq2.setReferenceNumber("ACH-NEXA-3321");
-        payReq2.setNotes("Partial deposit received");
+        payReq2.setReferenceNumber("NEFT/HDFC0001234/987123");
+        payReq2.setNotes("Partial deposit received via NEFT");
         paymentService.recordPayment(payReq2);
 
         // Order 3: Confirmed / Pending production

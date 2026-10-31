@@ -50,7 +50,7 @@ import { Payment, Invoice } from '../../models/models';
                   <td>
                     <span class="badge badge-info">{{ p.paymentMethod }}</span>
                   </td>
-                  <td style="color: #10b981; font-weight: 800; font-size: 14px;">\${{ p.amount | number:'1.2-2' }}</td>
+                  <td style="color: #10b981; font-weight: 800; font-size: 14px;">₹{{ p.amount | number:'1.2-2' }}</td>
                   <td>{{ p.referenceNumber || '-' }}</td>
                   <td>{{ p.notes || '-' }}</td>
                 </tr>
@@ -80,7 +80,7 @@ import { Payment, Invoice } from '../../models/models';
                   <option [ngValue]="null" disabled>Choose Invoice...</option>
                   @for (inv of payableInvoices; track inv.id) {
                     <option [value]="inv.id">
-                      {{ inv.invoiceNumber }} - {{ inv.customer?.name }} (Balance: \${{ inv.outstandingBalance }})
+                      {{ inv.invoiceNumber }} - {{ inv.customer?.name }} (Balance: ₹{{ inv.outstandingBalance }})
                     </option>
                   }
                 </select>
@@ -88,14 +88,14 @@ import { Payment, Invoice } from '../../models/models';
 
               @if (selectedInvoice) {
                 <div style="background: #f8fafc; padding: 12px; border-radius: 6px; margin-bottom: 16px; font-size: 13px;">
-                  <div>Invoice Total: <strong>\${{ selectedInvoice.totalAmount }}</strong></div>
-                  <div>Outstanding Balance: <strong style="color: #ef4444;">\${{ selectedInvoice.outstandingBalance }}</strong></div>
+                  <div>Invoice Total: <strong>₹{{ selectedInvoice.totalAmount }}</strong></div>
+                  <div>Outstanding Balance: <strong style="color: #ef4444;">₹{{ selectedInvoice.outstandingBalance }}</strong></div>
                 </div>
               }
 
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                 <div class="form-group">
-                  <label>Payment Amount ($) *</label>
+                  <label>Payment Amount (₹) *</label>
                   <input type="number" step="0.01" [(ngModel)]="newPayment.amount" name="amount" required />
                 </div>
                 <div class="form-group">
@@ -195,7 +195,7 @@ export class PaymentsComponent implements OnInit {
   savePayment(): void {
     this.api.recordPayment(this.newPayment).subscribe({
       next: (p) => {
-        this.notify.success(`Payment of \${p.amount} successfully posted against ${p.invoiceNumber}!`);
+        this.notify.success(`Payment of ₹${p.amount} successfully posted against ${p.invoiceNumber}!`);
         this.loadPayments();
         this.showPaymentModal = false;
       },

@@ -28,13 +28,13 @@ import Chart from 'chart.js/auto';
 
         <div class="kpi-card kpi-success">
           <div class="kpi-label">Revenue Invoiced</div>
-          <div class="kpi-value">\${{ (stats?.totalInvoicedAmount || 0) | number:'1.2-2' }}</div>
-          <div class="kpi-subtext">\${{ (stats?.totalRevenueCollected || 0) | number:'1.2-2' }} collected</div>
+          <div class="kpi-value">₹{{ (stats?.totalInvoicedAmount || 0) | number:'1.2-2' }}</div>
+          <div class="kpi-subtext">₹{{ (stats?.totalRevenueCollected || 0) | number:'1.2-2' }} collected</div>
         </div>
 
         <div class="kpi-card kpi-warning">
           <div class="kpi-label">Outstanding Receivables</div>
-          <div class="kpi-value">\${{ (stats?.outstandingPayments || 0) | number:'1.2-2' }}</div>
+          <div class="kpi-value">₹{{ (stats?.outstandingPayments || 0) | number:'1.2-2' }}</div>
           <div class="kpi-subtext">Unpaid customer invoices</div>
         </div>
 
@@ -98,7 +98,7 @@ import Chart from 'chart.js/auto';
                         'badge-danger': order.status === 'CANCELLED'
                       }">{{ order.status }}</span>
                     </td>
-                    <td>\${{ (order.totalAmount || 0) | number:'1.2-2' }}</td>
+                    <td>₹{{ (order.totalAmount || 0) | number:'1.2-2' }}</td>
                   </tr>
                 } @empty {
                   <tr>

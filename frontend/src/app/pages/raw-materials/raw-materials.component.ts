@@ -59,7 +59,7 @@ import { RawMaterial, InventoryTransaction } from '../../models/models';
                     <div><strong>{{ m.name }}</strong></div>
                     <small style="color: #64748b;">{{ m.description }}</small>
                   </td>
-                  <td>\${{ m.unitCost | number:'1.2-2' }}</td>
+                  <td>₹{{ m.unitCost | number:'1.2-2' }}</td>
                   <td>
                     <span [style.font-weight]="800" [style.color]="m.lowStock ? '#ef4444' : '#0f172a'" style="font-size: 14px;">
                       {{ m.currentStock }} {{ m.unitOfMeasure }}

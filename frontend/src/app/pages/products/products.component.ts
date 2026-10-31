@@ -48,7 +48,7 @@ import { Product, BomItem, RawMaterial, MaterialRequirement } from '../../models
                   <td><strong>{{ p.productCode }}</strong></td>
                   <td><strong>{{ p.name }}</strong></td>
                   <td>{{ p.description }}</td>
-                  <td>\${{ p.unitPrice | number:'1.2-2' }}</td>
+                  <td>₹{{ p.unitPrice | number:'1.2-2' }}</td>
                   <td>{{ p.unitOfMeasure }}</td>
                   <td>
                     <span class="badge" [ngClass]="p.active ? 'badge-success' : 'badge-danger'">

@@ -71,7 +71,7 @@ import { CustomerOrder, Customer, Product } from '../../models/models';
                   <td>{{ o.customer?.name }}</td>
                   <td>{{ o.orderDate }}</td>
                   <td>{{ o.deliveryDate || '-' }}</td>
-                  <td><strong style="color: #0f172a;">\${{ (o.totalAmount || 0) | number:'1.2-2' }}</strong></td>
+                  <td><strong style="color: #0f172a;">₹{{ (o.totalAmount || 0) | number:'1.2-2' }}</strong></td>
                   <td>
                     @if (o.invoiced) {
                       <span class="badge badge-success">INVOICED</span>
@@ -153,15 +153,15 @@ import { CustomerOrder, Customer, Product } from '../../models/models';
                       <td><strong>{{ item.productName }}</strong></td>
                       <td>{{ item.productCode }}</td>
                       <td>{{ item.quantity }}</td>
-                      <td>\${{ item.unitPrice | number:'1.2-2' }}</td>
-                      <td>\${{ item.subtotal | number:'1.2-2' }}</td>
+                      <td>₹{{ item.unitPrice | number:'1.2-2' }}</td>
+                      <td>₹{{ item.subtotal | number:'1.2-2' }}</td>
                     </tr>
                   }
                 </tbody>
               </table>
 
               <div style="text-align: right; margin-top: 16px; font-size: 16px;">
-                Grand Total Amount: <strong style="color: #10b981;">\${{ (selectedOrder.totalAmount || 0) | number:'1.2-2' }}</strong>
+                Grand Total Amount: <strong style="color: #10b981;">₹{{ (selectedOrder.totalAmount || 0) | number:'1.2-2' }}</strong>
               </div>
             </div>
 
@@ -220,7 +220,7 @@ import { CustomerOrder, Customer, Product } from '../../models/models';
                     <select [(ngModel)]="item.productId" [name]="'prod_' + $index" (change)="onProductSelected(item)" required>
                       <option [ngValue]="null" disabled>Select Product...</option>
                       @for (p of products; track p.id) {
-                        <option [value]="p.id">{{ p.name }} (\${{ p.unitPrice }})</option>
+                        <option [value]="p.id">{{ p.name }} (₹{{ p.unitPrice }})</option>
                       }
                     </select>
                     <input type="number" min="1" [(ngModel)]="item.quantity" [name]="'qty_' + $index" placeholder="Qty" required />

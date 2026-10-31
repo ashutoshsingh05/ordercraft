@@ -68,9 +68,9 @@ import { Invoice, CustomerOrder } from '../../models/models';
                   <td>{{ inv.customer?.name }}</td>
                   <td>{{ inv.invoiceDate }}</td>
                   <td>{{ inv.dueDate }}</td>
-                  <td>\${{ inv.totalAmount | number:'1.2-2' }}</td>
-                  <td style="color: #10b981;">\${{ inv.paidAmount | number:'1.2-2' }}</td>
-                  <td style="color: #ef4444; font-weight: 700;">\${{ inv.outstandingBalance | number:'1.2-2' }}</td>
+                  <td>₹{{ inv.totalAmount | number:'1.2-2' }}</td>
+                  <td style="color: #10b981;">₹{{ inv.paidAmount | number:'1.2-2' }}</td>
+                  <td style="color: #ef4444; font-weight: 700;">₹{{ inv.outstandingBalance | number:'1.2-2' }}</td>
                   <td>
                     <span class="badge" [ngClass]="{
                       'badge-secondary': inv.status === 'DRAFT',
@@ -117,7 +117,7 @@ import { Invoice, CustomerOrder } from '../../models/models';
                   <option [ngValue]="null" disabled>Choose Uninvoiced Order...</option>
                   @for (o of uninvoicedOrders; track o.id) {
                     <option [value]="o.id">
-                      {{ o.orderNumber }} - {{ o.customer?.name }} (\${{ o.totalAmount }})
+                      {{ o.orderNumber }} - {{ o.customer?.name }} (₹{{ o.totalAmount }})
                     </option>
                   }
                 </select>
@@ -172,22 +172,22 @@ import { Invoice, CustomerOrder } from '../../models/models';
                     <tr>
                       <td>{{ item.description }}</td>
                       <td>{{ item.quantity }}</td>
-                      <td>\${{ item.unitPrice | number:'1.2-2' }}</td>
-                      <td>\${{ item.amount | number:'1.2-2' }}</td>
+                      <td>₹{{ item.unitPrice | number:'1.2-2' }}</td>
+                      <td>₹{{ item.amount | number:'1.2-2' }}</td>
                     </tr>
                   }
                 </tbody>
               </table>
 
               <div style="margin-top: 16px; border-top: 1px solid #e2e8f0; padding-top: 12px; font-size: 13.5px; display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
-                <div>Subtotal: \${{ activeInvoice.subtotal | number:'1.2-2' }}</div>
-                <div>Sales Tax (5%): \${{ activeInvoice.taxAmount | number:'1.2-2' }}</div>
+                <div>Subtotal: ₹{{ activeInvoice.subtotal | number:'1.2-2' }}</div>
+                <div>GST (18%): ₹{{ activeInvoice.taxAmount | number:'1.2-2' }}</div>
                 <div style="font-size: 16px; font-weight: 800; color: #0f172a;">
-                  Total Amount: \${{ activeInvoice.totalAmount | number:'1.2-2' }}
+                  Total Amount: ₹{{ activeInvoice.totalAmount | number:'1.2-2' }}
                 </div>
-                <div style="color: #10b981;">Total Received: \${{ activeInvoice.paidAmount | number:'1.2-2' }}</div>
+                <div style="color: #10b981;">Total Received: ₹{{ activeInvoice.paidAmount | number:'1.2-2' }}</div>
                 <div style="color: #ef4444; font-weight: 700; font-size: 14px;">
-                  Outstanding Balance: \${{ activeInvoice.outstandingBalance | number:'1.2-2' }}
+                  Outstanding Balance: ₹{{ activeInvoice.outstandingBalance | number:'1.2-2' }}
                 </div>
               </div>
             </div>
@@ -315,7 +315,7 @@ export class InvoicesComponent implements OnInit {
 
     this.api.recordPayment(paymentPayload).subscribe({
       next: () => {
-        this.notify.success(`Invoice ${inv.invoiceNumber} fully settled for \${inv.outstandingBalance}`);
+        this.notify.success(`Invoice ${inv.invoiceNumber} fully settled for ₹${inv.outstandingBalance}`);
         this.loadInvoices();
       },
       error: (err) => this.notify.error(err.error?.message || 'Payment settlement failed')

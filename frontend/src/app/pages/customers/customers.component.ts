@@ -14,7 +14,7 @@ import { Customer } from '../../models/models';
       <div class="toolbar">
         <div>
           <h2>Customer Directory</h2>
-          <p style="color: #64748b; font-size: 13.5px;">Manage commercial accounts, corporate tax IDs, and billing entities</p>
+          <p style="color: #64748b; font-size: 13.5px;">Manage commercial accounts, GSTIN compliance, and factory billing entities</p>
         </div>
         <div class="actions">
           <input
@@ -36,7 +36,7 @@ import { Customer } from '../../models/models';
                 <th>Company Name</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Tax ID</th>
+                <th>GSTIN / PAN</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
@@ -104,8 +104,8 @@ import { Customer } from '../../models/models';
               </div>
 
               <div class="form-group">
-                <label>Tax Identification / EIN</label>
-                <input type="text" [(ngModel)]="currentCustomer.taxId" name="taxId" />
+                <label>GSTIN / PAN Identification</label>
+                <input type="text" [(ngModel)]="currentCustomer.taxId" name="taxId" placeholder="e.g. 27AAACT2727Q1ZW" />
               </div>
 
               <div class="modal-actions">
